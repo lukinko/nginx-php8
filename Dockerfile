@@ -47,6 +47,8 @@ curl -sS https://getcomposer.org/installer | php -- \
 echo "INSTALLING SSMTP..........................:"; \
   apt-get -y install ssmtp mailutils && \
 	sed -i -e"s/mailhub=mail/mailhub=smtp.i/g" /etc/ssmtp/ssmtp.conf \
+echo "INSTALLING NPM..........................:"; \
+  apt-get -y install npm && \
 echo "CLEARING INSTALLATION..........................:"; \
   composer clear-cache; \
 apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
