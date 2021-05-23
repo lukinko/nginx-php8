@@ -11,6 +11,8 @@ ENV PHP_USER_ID=33 \
 	  DEBIAN_FRONTEND=noninteractive \
 	  LC_ALL=pl_PL.UTF-8
 
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
 RUN apt-get update && \ 
 echo "INSTALLING locales..........................:"; \
 apt-get install -y locales && echo "pl_PL.UTF-8 UTF-8" | tee /etc/locale.gen && locale-gen && \
