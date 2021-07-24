@@ -34,6 +34,7 @@ mkdir /run/php; ln -s /usr/bin/php /usr/local/bin/php; \
 sed -i -e"s/listen = \/run\/php\/php8.0-fpm.sock/listen = 9000/" /etc/php/8.0/fpm/pool.d/www.conf; \
 echo "INSTALING php-fpm-healthcheck.............:"; \
 wget -O /usr/local/bin/php-fpm-healthcheck https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck && chmod +x /usr/local/bin/php-fpm-healthcheck; \
+apt-get -y install fcgiwrap; \
 echo "INSTALLING FONTS..........................:"; \
 apt-get -y install fonts-liberation; \
 echo "INSTALLING COMPOSER..........................:"; \
