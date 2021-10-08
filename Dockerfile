@@ -56,6 +56,7 @@ apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD start.sh /
 ADD supervisord.conf /etc/
+ADD openssl.cnf /etc/ssl/
 
 EXPOSE 80
 CMD ["/bin/bash", "/start.sh"]
