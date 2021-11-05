@@ -25,7 +25,7 @@ curl -s https://nginx.org/keys/nginx_signing.key | apt-key add - && \
 apt update && \
 apt-get -y install nginx; \
 echo "INSTALLING wkhtmltopdf..........................:"; \
-curl -L -o wkhtmltox.deb https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.$(lsb_release -sc)_amd64.deb && \
+curl -L -o wkhtmltox.deb https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.$(lsb_release -sc)_amd64.deb && \
 apt install -y ./wkhtmltox.deb && \
 rm wkhtmltox.deb; \
 echo "INSTALING PHP..........................:"; \
