@@ -29,9 +29,9 @@ curl -L -o wkhtmltox.deb https://github.com/wkhtmltopdf/packaging/releases/downl
 apt install -y ./wkhtmltox.deb && \
 rm wkhtmltox.deb; \
 echo "INSTALING PHP..........................:"; \
-apt -y install php8.0-fpm php8.0-gd php8.0-mbstring php8.0-xml php8.0-curl php8.0-intl php8.0-zip php8.0-soap php8.0-bcmath php8.0-calendar php8.0-exif php8.0-gettext php8.0-mysqli php8.0-pgsql php8.0-mysql php8.0-pgsql php8.0-mongodb && \
+apt -y install php8.1-fpm php8.1-gd php8.1-mbstring php8.1-xml php8.1-curl php8.1-intl php8.1-zip php8.1-soap php8.1-bcmath php8.1-calendar php8.1-exif php8.1-gettext php8.1-mysqli php8.1-pgsql php8.1-mysql php8.1-pgsql php8.1-mongodb && \
 mkdir /run/php; ln -s /usr/bin/php /usr/local/bin/php; \
-sed -i -e"s/listen = \/run\/php\/php8.0-fpm.sock/listen = 9000/" /etc/php/8.0/fpm/pool.d/www.conf; \
+sed -i -e"s/listen = \/run\/php\/php8.1-fpm.sock/listen = 9000/" /etc/php/8.1/fpm/pool.d/www.conf; \
 echo "INSTALING php-fpm-healthcheck.............:"; \
 wget -O /usr/local/bin/php-fpm-healthcheck https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck && chmod +x /usr/local/bin/php-fpm-healthcheck; \
 apt-get -y install fcgiwrap; \
