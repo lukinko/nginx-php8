@@ -29,7 +29,7 @@ curl -L -o wkhtmltox.deb https://github.com/wkhtmltopdf/packaging/releases/downl
 apt install -y ./wkhtmltox.deb && \
 rm wkhtmltox.deb; \
 echo "INSTALING PHP..........................:"; \
-apt -y install php8.1-fpm php8.1-gd php8.1-mbstring php8.1-xml php8.1-curl php8.1-intl php8.1-zip php8.1-soap php8.1-bcmath php8.1-calendar php8.1-exif php8.1-gettext php8.1-mysqli php8.1-pgsql php8.1-mysql php8.1-pgsql php8.1-mongodb && \
+apt -y install php8.1-fpm php8.1-http php8.1-php8.1-gd php8.1-mbstring php8.1-xml php8.1-curl php8.1-intl php8.1-zip php8.1-soap php8.1-bcmath php8.1-calendar php8.1-exif php8.1-gettext php8.1-mysqli php8.1-pgsql php8.1-mysql php8.1-pgsql php8.1-mongodb && \
 mkdir /run/php; ln -s /usr/bin/php /usr/local/bin/php; \
 sed -i -e"s/listen = \/run\/php\/php8.1-fpm.sock/listen = 9000/" /etc/php/8.1/fpm/pool.d/www.conf; \
 echo "INSTALING php-fpm-healthcheck.............:"; \
