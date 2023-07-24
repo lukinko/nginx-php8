@@ -31,7 +31,7 @@ rm wkhtmltox.deb; \
 echo "INSTALING ghostscript..........................:"; \
 apt install -y ghostscript; \
 echo "INSTALING PHP..........................:"; \
-apt -y install php8.2-fpm php8.2-http php8.2-gd php8.2-mbstring php8.2-xml php8.2-curl php8.2-intl php8.2-zip php8.2-soap php8.2-bcmath php8.2-calendar php8.2-exif php8.2-gettext php8.2-mysqli php8.2-pgsql php8.2-mysql php8.2-pgsql php8.2-mongodb && \
+apt -y install php8.2-fpm php8.2-http php8.2-raphf php8.2-gd php8.2-mbstring php8.2-xml php8.2-curl php8.2-intl php8.2-zip php8.2-soap php8.2-bcmath php8.2-calendar php8.2-exif php8.2-gettext php8.2-mysqli php8.2-pgsql php8.2-mysql php8.2-pgsql php8.2-mongodb && \
 mkdir /run/php; ln -s /usr/bin/php /usr/local/bin/php; \
 sed -i -e"s/listen = \/run\/php\/php8.2-fpm.sock/listen = 9000/" /etc/php/8.1/fpm/pool.d/www.conf; \
 echo "INSTALING php-fpm-healthcheck.............:"; \
