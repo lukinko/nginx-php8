@@ -31,9 +31,9 @@ rm wkhtmltox.deb; \
 echo "INSTALING ghostscript..........................:"; \
 apt install -y ghostscript; \
 echo "INSTALING PHP..........................:"; \
-apt -y install php8.2-fpm php8.2-http php8.2-raphf php8.2-gd php8.2-mbstring php8.2-xml php8.2-curl php8.2-intl php8.2-zip php8.2-soap php8.2-bcmath php8.2-calendar php8.2-exif php8.2-gettext php8.2-mysqli php8.2-pgsql php8.2-mysql php8.2-pgsql php8.2-mongodb && \
+apt -y install php8.3-fpm php8.3-http php8.3-raphf php8.3-gd php8.3-mbstring php8.3-xml php8.3-curl php8.3-intl php8.3-zip php8.3-soap php8.3-bcmath php8.3-calendar php8.3-exif php8.3-gettext php8.3-mysqli php8.3-pgsql php8.3-mysql php8.3-pgsql php8.3-mongodb && \
 mkdir /run/php; ln -s /usr/bin/php /usr/local/bin/php; \
-sed -i -e"s/listen = \/run\/php\/php8.2-fpm.sock/listen = 9000/" /etc/php/8.1/fpm/pool.d/www.conf; \
+sed -i -e"s/listen = \/run\/php\/php8.3-fpm.sock/listen = 9000/" /etc/php/8.1/fpm/pool.d/www.conf; \
 echo "INSTALING php-fpm-healthcheck.............:"; \
 wget -O /usr/local/bin/php-fpm-healthcheck https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck && chmod +x /usr/local/bin/php-fpm-healthcheck; \
 apt-get -y install fcgiwrap; \
