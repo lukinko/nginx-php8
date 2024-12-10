@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:noble
 #https://linuxize.com/post/how-to-install-php-8-on-ubuntu-20-04/
 
 ENV PHP_USER_ID=33 \
