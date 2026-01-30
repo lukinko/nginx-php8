@@ -25,8 +25,8 @@ curl -s https://nginx.org/keys/nginx_signing.key | apt-key add - && \
 apt update && \
 apt-get -y install nginx; \
 echo "INSTALLING wkhtmltopdf..........................:"; \
-curl -L -o wkhtmltox.deb https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.$(lsb_release -sc)_amd64.deb && \
-apt install -y ./wkhtmltox.deb && \
+curl -L -o wkhtmltox.deb https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.jammy_amd64.deb && \
+apt install --fix-broken -y ./wkhtmltox.deb && \
 rm wkhtmltox.deb; \
 echo "INSTALING ghostscript..........................:"; \
 apt install -y ghostscript; \
