@@ -1,4 +1,4 @@
-FROM ubuntu:noble
+FROM ubuntu:resolute
 #https://linuxize.com/post/how-to-install-php-8-on-ubuntu-20-04/
 
 ENV PHP_USER_ID=33 \
@@ -16,14 +16,11 @@ echo "INSTALLING locales..........................:"; \
 apt-get install -y locales && echo "pl_PL.UTF-8 UTF-8" | tee /etc/locale.gen && locale-gen && \
 echo "INSTALLING STUFFs..........................:"; \
 apt-get -y install software-properties-common lsb-release wget curl supervisor joe xtail git unzip gnupg2 iputils-ping net-tools host && \ 
-echo "ADDING ppa ondrej..........................:"; \
-add-apt-repository -y ppa:ondrej/php && \
 echo "INSTALLING NGINX..........................:"; \
-echo "deb http://nginx.org/packages/mainline/ubuntu/ $(lsb_release -sc) nginx" > /etc/apt/sources.list.d/nginx.list && \
-echo "deb-src http://nginx.org/packages/mainline/ubuntu/ $(lsb_release -sc) nginx" >> /etc/apt/sources.list.d/nginx.list && \
-curl -s https://nginx.org/keys/nginx_signing.key | apt-key add - && \
-apt update && \
-apt-get -y install nginx; \
+curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null && \
+echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/ubuntu/ $(lsb_release -sc) nginx" tee /etc/apt/sources.list.d/nginx.list && \
+echo "deb-src [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/ubuntu/ $(lsb_release -sc) nginx" tee -a /etc/apt/sources.list.d/nginx.list && \
+apt-get update; apt-get install -y nginx; \
 echo "INSTALLING wkhtmltopdf..........................:"; \
 curl -L -o wkhtmltox.deb https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.jammy_amd64.deb && \
 apt install --fix-broken -y ./wkhtmltox.deb && \
@@ -31,9 +28,9 @@ rm wkhtmltox.deb; \
 echo "INSTALING ghostscript..........................:"; \
 apt install -y ghostscript; \
 echo "INSTALING PHP..........................:"; \
-apt -y install php8.4-fpm php8.4-http php8.4-raphf php8.4-gd php8.4-mbstring php8.4-xml php8.4-curl php8.4-intl php8.4-zip php8.4-soap php8.4-bcmath php8.4-calendar php8.4-exif php8.4-gettext php8.4-mysqli php8.4-pgsql php8.4-mysql php8.4-pgsql php8.4-mongodb && \
+apt -y install php8.5-fpm php8.5-http php8.5-raphf php8.5-gd php8.5-mbstring php8.5-xml php8.5-curl php8.5-intl php8.5-zip php8.5-soap php8.5-bcmath php8.5-calendar php8.5-exif php8.5-gettext php8.5-mysqli php8.5-pgsql php8.5-mysql php8.5-pgsql php8.5-mongodb && \
 mkdir /run/php; ln -s /usr/bin/php /usr/local/bin/php; \
-sed -i -e"s/listen = \/run\/php\/php8.4-fpm.sock/listen = 9000/" /etc/php/8.1/fpm/pool.d/www.conf; \
+sed -i -e"s/listen = \/run\/php\/php8.5-fpm.sock/listen = 9000/" /etc/php/8.5/fpm/pool.d/www.conf; \
 echo "INSTALING php-fpm-healthcheck.............:"; \
 wget -O /usr/local/bin/php-fpm-healthcheck https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck && chmod +x /usr/local/bin/php-fpm-healthcheck; \
 apt-get -y install fcgiwrap; \
