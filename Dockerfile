@@ -16,8 +16,8 @@ echo "INSTALLING locales..........................:"; \
 apt-get install -y locales && echo "pl_PL.UTF-8 UTF-8" | tee /etc/locale.gen && locale-gen && \
 echo "INSTALLING STUFFs..........................:"; \
 apt-get -y install software-properties-common lsb-release wget curl supervisor joe xtail git unzip gnupg2 iputils-ping net-tools host && \ 
-echo "ADDING ppa ondrej..........................:"; \
-add-apt-repository -y ppa:ondrej/php && \
+echo "ADDING sury.org..........................:"; \
+curl -sSL https://packages.sury.org/php/README.txt | bash -x && \
 echo "INSTALLING NGINX..........................:"; \
 echo "deb http://nginx.org/packages/mainline/ubuntu/ $(lsb_release -sc) nginx" > /etc/apt/sources.list.d/nginx.list && \
 echo "deb-src http://nginx.org/packages/mainline/ubuntu/ $(lsb_release -sc) nginx" >> /etc/apt/sources.list.d/nginx.list && \
